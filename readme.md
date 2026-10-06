@@ -91,7 +91,7 @@ leader.append(k, v);
 | Memory pressure on a large book | Convert in ~100-page chunks with `--pages` |
 | Garbled or empty text | PDF is probably scanned; retry with `--ocr` |
 
-Environment tasks (rebuilding the venv, updating Docling) are in [docs/setup-and-script.md](docs/setup-and-script.md#housekeeping).
+Environment tasks (rebuilding the venv, updating Docling) are in [docs/setup-and-script.md](setup-and-script.md).
 
 ## Caveats
 
