@@ -19,7 +19,7 @@ Same filename stem for each pair. Figures appear in the `.md` as `<!-- image -->
 
 ## Setup
 
-Works on macOS, Linux, and Windows. Install uv, add Docling, and place `book2md.py` in the project. Full steps, with what each command does, are in **[docs/setup-and-script.md](docs/setup-and-script.md)**, along with a walkthrough of the script.
+Works on macOS, Linux, and Windows. Install uv, add Docling, and place `book2md.py` in the project. Full steps, with what each command does, are in **[docs/setup-and-script.md](setup-and-script.md)**, along with a walkthrough of the script.
 
 ## Usage
 
