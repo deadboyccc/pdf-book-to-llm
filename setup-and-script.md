@@ -1,6 +1,6 @@
 # Setup and script reference
 
-Companion to the [README](README.md): the uv environment setup and a walkthrough of `book2md.py`.
+Companion to the [README](readme.md): the uv environment setup and a walkthrough of `book2md.py`.
 
 ## Setup
 
