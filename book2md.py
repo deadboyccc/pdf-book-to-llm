@@ -22,7 +22,7 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any
 
-__version__ = "0.2.0"
+__version__ = "0.3.0"
 
 DEFAULT_OUT = Path.home() / "study" / "corpus"
 DEFAULT_SCALE = 1.5
