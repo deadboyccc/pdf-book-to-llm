@@ -2,6 +2,35 @@
 
 **Date:** 2026-11-17 · **Applies to:** `deadboyccc/pdf-book-to-llm` at [v1.0.0](https://github.com/deadboyccc/pdf-book-to-llm/releases/tag/v1.0.0)
 
+## Copy-paste: name and description
+
+**Repository name**
+
+```text
+book2md
+```
+
+**Description** (GitHub *About* box, 192 characters)
+
+```text
+Turn a PDF book into one Markdown file + one PNG per page, so you can give an LLM the exact pages you're asking about. Tables and code as Markdown, diagrams as images. Runs locally on Docling.
+```
+
+**Topics**
+
+```text
+pdf markdown llm docling pdf-to-markdown document-conversion rag ocr books cli python uv
+```
+
+**Apply all three** (GitHub CLI)
+
+```bash
+gh repo rename book2md --repo deadboyccc/pdf-book-to-llm --yes
+gh repo edit deadboyccc/book2md \
+  --description "Turn a PDF book into one Markdown file + one PNG per page, so you can give an LLM the exact pages you're asking about. Tables and code as Markdown, diagrams as images. Runs locally on Docling." \
+  --add-topic pdf,markdown,llm,docling,pdf-to-markdown,document-conversion,rag,ocr,books,cli,python,uv
+```
+
 ## Summary
 
 The repository is called `pdf-book-to-llm`, but everything inside it is called
@@ -10,7 +39,7 @@ the README title. The current name is also easy to misremember: it was asked for
 as "pdf-to-book-llm", which does not exist. Renaming it to `book2md` makes the repo,
 the command and the install line say the same thing.
 
-Nothing has been renamed or changed on GitHub. The snippets below are ready to paste
+Nothing has been renamed or changed on GitHub. The snippets above, and the details below, are ready to paste
 when you decide.
 
 | | Now | Suggested |

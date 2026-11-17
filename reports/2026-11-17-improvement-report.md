@@ -70,6 +70,40 @@ Full list in [`docs/ASSUMPTIONS.md`](../docs/ASSUMPTIONS.md). The main ones:
 - **No single-file binary.** For a Python tool that loads torch and model weights, the wheel plus `uv tool install` is the right distribution.
 - **Documentation examples are real CI output**, including the tabs.
 
+## Suggested repository name and description
+
+The command, the package and the README are all called **book2md**, but the repository is
+`pdf-book-to-llm`, which is easy to misremember. `book2md` is free on GitHub (under this
+account) and on PyPI. Reasons, alternatives and the follow-up steps after renaming are in
+[the naming report](2026-11-17-repo-name-and-description.md).
+
+**Repository name**
+
+```text
+book2md
+```
+
+**Description** (GitHub *About* box, 192 characters)
+
+```text
+Turn a PDF book into one Markdown file + one PNG per page, so you can give an LLM the exact pages you're asking about. Tables and code as Markdown, diagrams as images. Runs locally on Docling.
+```
+
+**Topics**
+
+```text
+pdf markdown llm docling pdf-to-markdown document-conversion rag ocr books cli python uv
+```
+
+**Apply all three** (GitHub CLI)
+
+```bash
+gh repo rename book2md --repo deadboyccc/pdf-book-to-llm --yes
+gh repo edit deadboyccc/book2md \
+  --description "Turn a PDF book into one Markdown file + one PNG per page, so you can give an LLM the exact pages you're asking about. Tables and code as Markdown, diagrams as images. Runs locally on Docling." \
+  --add-topic pdf,markdown,llm,docling,pdf-to-markdown,document-conversion,rag,ocr,books,cli,python,uv
+```
+
 ## Caveats
 
 - **The real-model tests run on Linux only.** The unit tests cover macOS and Windows; real conversions there were not exercised.
