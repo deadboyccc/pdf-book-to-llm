@@ -2,7 +2,8 @@ name: CI
 
 on:
   push:
-    branches: [main]
+    # milestone-* branches let heavy changes (the real-model e2e job) be validated before main moves.
+    branches: [main, 'milestone-*']
     tags: ['v*']
   pull_request:
     branches: [main]
