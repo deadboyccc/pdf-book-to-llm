@@ -11,7 +11,7 @@ a walkthrough of `book2md.py`.
 
 ## Install uv
 
-uv manages Python and the environment; no `sudo` is needed. Works on macOS, Linux and Windows.
+uv manages Python and the environment; no `sudo` is needed. Works on macOS, Windows and glibc-based Linux; Alpine and other musl distributions are not supported because PyTorch publishes no wheels for them.
 
 ```bash
 brew install uv                                   # macOS

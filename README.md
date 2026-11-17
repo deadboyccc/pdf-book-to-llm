@@ -37,7 +37,7 @@ Built on [Docling](https://github.com/docling-project/docling) and
 
 ## Install
 
-You need [uv](https://docs.astral.sh/uv/getting-started/installation/). Works on macOS, Linux and Windows.
+You need [uv](https://docs.astral.sh/uv/getting-started/installation/). Works on macOS, Windows and glibc-based Linux (Alpine and other musl distributions are not supported: PyTorch, which Docling needs, publishes no wheels for them).
 
 ```bash
 uv tool install git+https://github.com/deadboyccc/pdf-book-to-llm
