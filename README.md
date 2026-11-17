@@ -19,19 +19,31 @@ Same filename stem for each pair. Figures appear in the `.md` as `<!-- image -->
 
 ## Setup
 
-Works on macOS, Linux, and Windows. Install uv, add Docling, and place `book2md.py` in the project. Full steps, with what each command does, are in **[docs/setup-and-script.md](setup-and-script.md)**, along with a walkthrough of the script.
+Works on macOS, Linux, and Windows. Needs [uv](https://docs.astral.sh/uv/getting-started/installation/).
+
+```bash
+# install the book2md command
+uv tool install git+https://github.com/deadboyccc/pdf-book-to-llm
+
+# or work from a clone
+git clone https://github.com/deadboyccc/pdf-book-to-llm && cd pdf-book-to-llm
+uv sync                      # creates .venv with the locked Docling version
+uv run book2md --help
+```
+
+Full steps, with what each command does, are in **[docs/setup-and-script.md](docs/setup-and-script.md)**, along with a walkthrough of the script.
 
 ## Usage
 
 ```bash
 # test on a few pages first
-uv run python book2md.py books/Book.pdf --pages 1-20
+book2md books/Book.pdf --pages 1-20
 
 # one chapter
-uv run python book2md.py books/Book.pdf --pages 150-210
+book2md books/Book.pdf --pages 150-210
 
 # whole book (caffeinate keeps a Mac awake; omit elsewhere)
-caffeinate -i uv run python book2md.py books/Book.pdf
+caffeinate -i book2md books/Book.pdf
 ```
 
 | Option | Default | Meaning |
@@ -40,13 +52,19 @@ caffeinate -i uv run python book2md.py books/Book.pdf
 | `--pages S-E` | all | Pages S to E, 1-based, inclusive. `--pages 120` = one page. Output goes to `<book>_pS-E/`, so a test run never overwrites a full conversion |
 | `--ocr` | off | Run OCR. Only for scanned books; much slower. Digital PDFs already contain text |
 | `--formulas` | off | Recognise math, emit LaTeX. Slow; enable for math-heavy books |
-| `--scale X` | `1.5` | Page image scale. `2.0` = sharper, larger |
+| `--scale X` | `1.5` | Page image scale, greater than 0. `2.0` = sharper, larger |
+| `--out DIR` | `~/study/corpus` | Output root |
+| `--version` | | Print the version |
+
+From a clone, prefix commands with `uv run` (`uv run book2md …`); `uv run python book2md.py …` still works.
+
+**Exit codes:** `0` every requested page was written · `1` the conversion failed, or some pages could not be converted (the pages that did convert are still written, and the missing ones are listed) · `2` invalid arguments.
 
 Page numbers are **PDF page numbers** (counted from the first page of the file), not the numbers printed on the pages. If chapter 1 starts on PDF page 25, use 25.
 
 ## Output
 
-Written to `CORPUS_ROOT/<book>[_pS-E]/pages/`. `CORPUS_ROOT` defaults to `~/study/corpus`; edit it in the script to change.
+Written to `<out>/<book>[_pS-E]/pages/`, where `<out>` is `--out` (default `~/study/corpus`). Nothing is written if the conversion fails.
 
 ```
 ~/study/corpus/Book/pages/
@@ -90,8 +108,9 @@ leader.append(k, v);
 |---------|-----|
 | Memory pressure on a large book | Convert in ~100-page chunks with `--pages` |
 | Garbled or empty text | PDF is probably scanned; retry with `--ocr` |
+| Exit code 1 and "page(s) could not be converted" | Docling failed on those pages; the rest were written. Retry just those pages with `--pages` |
 
-Environment tasks (rebuilding the venv, updating Docling) are in [docs/setup-and-script.md](setup-and-script.md).
+Environment tasks (rebuilding the venv, updating Docling) are in [docs/setup-and-script.md](docs/setup-and-script.md).
 
 ## Caveats
 

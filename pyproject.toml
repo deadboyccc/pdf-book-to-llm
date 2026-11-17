@@ -1,0 +1,69 @@
+[project]
+name = "book2md"
+dynamic = ["version"]
+description = "Convert a PDF book into one Markdown file and one PNG per page, so an LLM can be given exact pages."
+readme = "README.md"
+requires-python = ">=3.10"
+license-files = ["LICENSE"]
+authors = [{ name = "Ahmed M. Ali" }]
+keywords = ["pdf", "markdown", "llm", "docling", "books"]
+classifiers = [
+    "Environment :: Console",
+    "License :: OSI Approved :: GNU Affero General Public License v3",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Topic :: Text Processing :: Markup :: Markdown",
+]
+dependencies = [
+    "docling>=2.145,<3",
+]
+
+[project.scripts]
+book2md = "book2md:main"
+
+[project.urls]
+Repository = "https://github.com/deadboyccc/pdf-book-to-llm"
+Issues = "https://github.com/deadboyccc/pdf-book-to-llm/issues"
+
+[dependency-groups]
+dev = [
+    "pytest>=9.0",
+    "pytest-cov>=7.0",
+    "ruff>=0.17",
+    # Builds the sample PDF for the end-to-end tests.
+    "fpdf2>=2.8; python_version >= '3.11'",
+]
+
+[build-system]
+requires = ["hatchling>=1.27"]
+build-backend = "hatchling.build"
+
+[tool.hatch.version]
+path = "book2md.py"
+
+[tool.hatch.build.targets.wheel]
+only-include = ["book2md.py"]
+
+[tool.hatch.build.targets.sdist]
+include = ["book2md.py", "README.md", "LICENSE", "docs/", "tests/"]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]
+markers = [
+    "docling: runs the real Docling models (slow; needs `uv sync`, downloads models on first run)",
+]
+
+[tool.coverage.run]
+source = ["book2md"]
+
+[tool.ruff]
+line-length = 110
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP", "SIM", "PL"]
+ignore = ["PLR2004", "PLR0913"]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**" = ["PLC0415"]
