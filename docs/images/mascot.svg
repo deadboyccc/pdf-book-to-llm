@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="240" height="240" viewBox="0 0 240 240" role="img" aria-labelledby="title desc">
+  <title id="title">Folio, the book2md bookworm</title>
+  <desc id="desc">A friendly green bookworm with round glasses climbs out of an open book, holding up a page marked with a Markdown heading sign.</desc>
+  <defs>
+    <linearGradient id="bodyGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#6ee7a0"/>
+      <stop offset="1" stop-color="#34c77b"/>
+    </linearGradient>
+    <linearGradient id="pageGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#eef2f7"/>
+    </linearGradient>
+  </defs>
+
+  <!-- backdrop keeps contrast in light and dark themes -->
+  <circle cx="120" cy="120" r="116" fill="#e8f3ff" stroke="#c7ddf7" stroke-width="2"/>
+
+  <!-- book: cover, pages, gutter, bookmark -->
+  <path d="M28 168 Q120 150 212 168 L212 196 Q120 178 28 196 Z" fill="#1e3a8a"/>
+  <path d="M34 160 Q76 146 118 160 L118 186 Q76 172 34 186 Z" fill="url(#pageGrad)" stroke="#94a3b8" stroke-width="1.5"/>
+  <path d="M122 160 Q164 146 206 160 L206 186 Q164 172 122 186 Z" fill="url(#pageGrad)" stroke="#94a3b8" stroke-width="1.5"/>
+  <path d="M46 162 Q76 152 106 162" fill="none" stroke="#cbd5e1" stroke-width="2"/>
+  <path d="M46 170 Q76 160 106 170" fill="none" stroke="#cbd5e1" stroke-width="2"/>
+  <path d="M134 162 Q164 152 194 162" fill="none" stroke="#cbd5e1" stroke-width="2"/>
+  <path d="M134 170 Q164 160 194 170" fill="none" stroke="#cbd5e1" stroke-width="2"/>
+  <path d="M182 152 L182 200 L189 193 L196 200 L196 150 Z" fill="#ef4444"/>
+
+  <!-- body segments rising from the gutter -->
+  <g fill="url(#bodyGrad)" stroke="#15803d" stroke-width="2.5">
+    <circle cx="118" cy="160" r="17"/>
+    <circle cx="112" cy="140" r="18"/>
+    <circle cx="112" cy="119" r="19"/>
+  </g>
+
+  <!-- arm holding a page with a Markdown heading -->
+  <g transform="rotate(-12 170 98)">
+    <rect x="148" y="66" width="46" height="58" rx="5" fill="#ffffff" stroke="#334155" stroke-width="2.5"/>
+    <text x="158" y="92" font-family="Menlo, Consolas, monospace" font-size="22" font-weight="700" fill="#2563eb">#</text>
+    <path d="M174 84 H186 M158 102 H186 M158 112 H180" stroke="#94a3b8" stroke-width="3" stroke-linecap="round"/>
+  </g>
+  <path d="M126 118 Q142 112 154 104" fill="none" stroke="#15803d" stroke-width="9" stroke-linecap="round"/>
+  <path d="M126 118 Q142 112 154 104" fill="none" stroke="#5fdc97" stroke-width="5" stroke-linecap="round"/>
+
+  <!-- head -->
+  <circle cx="110" cy="80" r="33" fill="url(#bodyGrad)" stroke="#15803d" stroke-width="2.5"/>
+  <path d="M96 50 Q90 34 82 30" fill="none" stroke="#15803d" stroke-width="3" stroke-linecap="round"/>
+  <path d="M120 49 Q124 33 132 28" fill="none" stroke="#15803d" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="81" cy="29" r="5" fill="#facc15" stroke="#a16207" stroke-width="1.5"/>
+  <circle cx="133" cy="27" r="5" fill="#facc15" stroke="#a16207" stroke-width="1.5"/>
+
+  <!-- glasses and eyes -->
+  <circle cx="97" cy="78" r="12" fill="#ffffff" stroke="#1f2937" stroke-width="3"/>
+  <circle cx="123" cy="78" r="12" fill="#ffffff" stroke="#1f2937" stroke-width="3"/>
+  <path d="M109 77 Q110 74 111 77" fill="none" stroke="#1f2937" stroke-width="3"/>
+  <circle cx="100" cy="80" r="4.5" fill="#1f2937"/>
+  <circle cx="126" cy="80" r="4.5" fill="#1f2937"/>
+  <circle cx="101.5" cy="78.5" r="1.4" fill="#ffffff"/>
+  <circle cx="127.5" cy="78.5" r="1.4" fill="#ffffff"/>
+
+  <!-- cheeks and smile -->
+  <circle cx="88" cy="96" r="5" fill="#fda4af" opacity="0.8"/>
+  <circle cx="133" cy="96" r="5" fill="#fda4af" opacity="0.8"/>
+  <path d="M101 96 Q110 104 119 96" fill="none" stroke="#1f2937" stroke-width="3" stroke-linecap="round"/>
+</svg>

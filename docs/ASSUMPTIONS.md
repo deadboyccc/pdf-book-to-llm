@@ -29,11 +29,21 @@ documented behaviour working.
 | P4 | Torch | Resolved from PyPI as usual, so Linux users with an NVIDIA GPU keep CUDA. The lock pins the exact versions CI tests. |
 | P5 | File layout | `readme.md` → `README.md` and `setup-and-script.md` → `docs/setup-and-script.md`: the existing links already pointed there, so moving the files fixed both broken links. |
 | P6 | Native binary | Not built. Unlike a JVM project, a Python tool that loads torch and Docling's models gains nothing from a single-file binary; the wheel plus `uv tool install` is the distribution. |
-| P7 | Versions | Releases follow the milestones: `v0.2.0` (reproducible and robust), `v0.3.0` (verified on real Docling), `v1.0.0` (documentation). The script before this work counts as 0.1. |
+| P7 | Versions | Releases follow the milestones: `v0.2.0` (reproducible and robust), `v0.3.0` (verified on real Docling), `v1.0.0` (documentation, mascot and picture). The script before this work counts as 0.1. |
 
 ## Testing
 
 | ID | Topic | Decision |
 |----|-------|----------|
 | T1 | Unit tests | Docling is replaced by fakes at its boundary (`convert_pdf` and the document object), so the unit suite runs in about a second on Linux, macOS and Windows without installing Docling. |
-| T2 | Real-model tests | End-to-end tests that run the real Docling models need several GB of downloads; they run in CI, not as part of the unit suite. |
+| T2 | Real-model tests | `tests/e2e` generates a three-page sample book and runs the installed command with the real models. They need the full locked environment and about 1 GB of model weights, so they run in a separate CI job on every push (and locally with `uv sync && uv run pytest tests/e2e`). Without Docling they skip; CI sets `BOOK2MD_REQUIRE_DOCLING=1` so they fail instead. |
+| T3 | What the e2e tests assert | Structure that a correct conversion must have — page markers, a Markdown table with every row, the listing inside a fenced code block, a figure placeholder with its caption, image size following `--scale` — not byte-exact Markdown, which changes with model versions. |
+| T4 | Validating heavy changes | CI also runs on `milestone-*` branches, so the real-model job goes green before `main` is fast-forwarded. The token used could not open pull requests. |
+
+## Presentation
+
+| ID | Topic | Decision |
+|----|-------|----------|
+| D1 | Mascot | **Folio**, a bookworm in round glasses climbing out of an open book with a Markdown `#` page: a bookworm reads books and turns them into notes, which is what the tool does. SVG with its own backdrop so it reads in light and dark themes. |
+| D2 | README picture | A pipeline diagram (PDF → book2md → page pairs → asking an LLM), drawn as SVG to stay sharp and diffable. |
+| D3 | README examples | Output examples are real, unedited output from the CI sample book — including Docling's tab indentation in code blocks — rather than idealised samples. |

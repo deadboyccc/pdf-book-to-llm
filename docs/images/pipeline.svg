@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="430" viewBox="0 0 960 430" role="img" aria-labelledby="title desc">
+  <title id="title">From a PDF book to pages an LLM can read</title>
+  <desc id="desc">book2md runs Docling on a PDF book and writes one Markdown file and one PNG image per page. You then give an LLM the exact pages you are asking about.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#475569"/>
+    </marker>
+    <style>
+      text { font-family: "Inter", "Segoe UI", "Helvetica Neue", Arial, sans-serif; fill: #0f172a; }
+      .title { font-size: 15px; font-weight: 700; }
+      .small { font-size: 11.5px; fill: #475569; }
+      .mono { font-family: "JetBrains Mono", "SFMono-Regular", Menlo, Consolas, monospace; font-size: 11px; fill: #334155; }
+      .monob { font-family: "JetBrains Mono", "SFMono-Regular", Menlo, Consolas, monospace; font-size: 11px; fill: #1d4ed8; }
+      .card { fill: #ffffff; stroke: #cbd5e1; stroke-width: 1.2; }
+      .chip { font-size: 11px; fill: #1e3a8a; font-weight: 600; }
+    </style>
+  </defs>
+
+  <rect x="0.5" y="0.5" width="959" height="429" rx="14" fill="#f8fafc" stroke="#e2e8f0"/>
+
+  <!-- 1. The book -->
+  <rect class="card" x="24" y="24" width="220" height="230" rx="12"/>
+  <text class="title" x="42" y="52">Your PDF book</text>
+  <g>
+    <rect x="64" y="74" width="120" height="150" rx="6" fill="#1e3a8a"/>
+    <rect x="72" y="70" width="120" height="150" rx="6" fill="#2563eb"/>
+    <rect x="80" y="66" width="120" height="150" rx="6" fill="#ffffff" stroke="#94a3b8" stroke-width="1.5"/>
+    <text x="92" y="90" font-size="13" font-weight="700" fill="#0f172a">Designing</text>
+    <text x="92" y="106" font-size="13" font-weight="700" fill="#0f172a">Data Systems</text>
+    <rect x="92" y="118" width="96" height="5" rx="2" fill="#cbd5e1"/>
+    <rect x="92" y="128" width="84" height="5" rx="2" fill="#cbd5e1"/>
+    <rect x="92" y="142" width="96" height="30" rx="3" fill="#eef2ff" stroke="#c7d2fe"/>
+    <rect x="92" y="180" width="60" height="22" rx="3" fill="#ecfdf5" stroke="#a7f3d0"/>
+    <text x="160" y="196" font-family="Menlo, Consolas, monospace" font-size="12" font-weight="700" style="fill:#64748b">PDF</text>
+  </g>
+  <text class="small" x="42" y="244">text · tables · code · diagrams</text>
+
+  <path d="M248 139 L 300 139" fill="none" stroke="#475569" stroke-width="1.8" marker-end="url(#arrow)"/>
+
+  <!-- 2. book2md -->
+  <rect class="card" x="304" y="24" width="300" height="230" rx="12"/>
+  <g transform="translate(330 46)">
+    <circle cx="22" cy="22" r="22" fill="#5fdc97" stroke="#15803d" stroke-width="2"/>
+    <circle cx="14" cy="20" r="7" fill="#ffffff" stroke="#1f2937" stroke-width="2"/>
+    <circle cx="30" cy="20" r="7" fill="#ffffff" stroke="#1f2937" stroke-width="2"/>
+    <circle cx="16" cy="21" r="2.6" fill="#1f2937"/>
+    <circle cx="32" cy="21" r="2.6" fill="#1f2937"/>
+    <path d="M16 31 Q22 36 28 31" fill="none" stroke="#1f2937" stroke-width="2" stroke-linecap="round"/>
+  </g>
+  <text class="title" x="386" y="62">book2md</text>
+  <text class="small" x="386" y="80">runs Docling locally — nothing is uploaded</text>
+  <rect x="322" y="102" width="264" height="30" rx="6" fill="#0f172a"/>
+  <text x="334" y="122" font-family="Menlo, Consolas, monospace" font-size="11.5" style="fill:#e2e8f0">$ book2md Book.pdf --pages 150-210</text>
+  <text class="small" x="322" y="158">✓ layout and reading order</text>
+  <text class="small" x="322" y="178">✓ tables rebuilt as Markdown tables</text>
+  <text class="small" x="322" y="198">✓ code blocks kept as code</text>
+  <text class="small" x="322" y="218">✓ a rendered image of every page</text>
+  <text class="small" x="322" y="238">○ OCR and LaTeX formulas when you ask</text>
+
+  <path d="M608 139 L 660 139" fill="none" stroke="#475569" stroke-width="1.8" marker-end="url(#arrow)"/>
+
+  <!-- 3. pages -->
+  <rect class="card" x="664" y="24" width="272" height="230" rx="12"/>
+  <text class="title" x="682" y="52">pages/ — one pair per page</text>
+  <rect x="682" y="66" width="140" height="172" rx="6" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text class="monob" x="690" y="84">p0163.md</text>
+  <text class="mono" x="690" y="104">&lt;!-- PAGE 163 --&gt;</text>
+  <text class="mono" x="690" y="120">## Problems with</text>
+  <text class="mono" x="690" y="134">   Replication Lag</text>
+  <text class="mono" x="690" y="152">| Guarantee | ... |</text>
+  <text class="mono" x="690" y="166">|-----------|-----|</text>
+  <text class="mono" x="690" y="184">```java</text>
+  <text class="mono" x="690" y="198">leader.append(k,v)</text>
+  <text class="mono" x="690" y="212">```</text>
+  <text class="mono" x="690" y="228">&lt;!-- image --&gt;</text>
+  <rect x="832" y="66" width="88" height="120" rx="4" fill="#ffffff" stroke="#cbd5e1"/>
+  <text class="monob" x="838" y="82">p0163.png</text>
+  <rect x="842" y="92" width="68" height="5" rx="2" fill="#94a3b8"/>
+  <rect x="842" y="102" width="56" height="4" rx="2" fill="#cbd5e1"/>
+  <rect x="842" y="112" width="68" height="16" rx="2" fill="#eef2ff" stroke="#c7d2fe"/>
+  <rect x="846" y="136" width="18" height="12" fill="#dbeafe" stroke="#475569"/>
+  <rect x="884" y="132" width="20" height="10" fill="#dcfce7" stroke="#475569"/>
+  <rect x="884" y="152" width="20" height="10" fill="#dcfce7" stroke="#475569"/>
+  <path d="M864 142 L884 137 M864 142 L884 157" stroke="#475569" stroke-width="1.2"/>
+  <rect x="842" y="170" width="60" height="4" rx="2" fill="#cbd5e1"/>
+  <text class="small" x="832" y="206">p0164.md</text>
+  <text class="small" x="832" y="222">p0164.png</text>
+  <text class="small" x="832" y="238">…</text>
+
+  <!-- 4. Ask the LLM -->
+  <text class="title" x="24" y="290">Then ask about exact pages</text>
+  <rect x="24" y="302" width="440" height="104" rx="12" fill="#ffffff" stroke="#cbd5e1"/>
+  <rect x="40" y="316" width="82" height="22" rx="11" fill="#dbeafe"/>
+  <text class="chip" x="81" y="331" text-anchor="middle">p0163.md</text>
+  <rect x="128" y="316" width="88" height="22" rx="11" fill="#dbeafe"/>
+  <text class="chip" x="172" y="331" text-anchor="middle">p0163.png</text>
+  <text x="40" y="364" font-size="14" fill="#0f172a">“Explain the example on page 163,</text>
+  <text x="40" y="384" font-size="14" fill="#0f172a">including the diagram.”</text>
+
+  <path d="M468 354 L 492 354" fill="none" stroke="#475569" stroke-width="1.8" marker-end="url(#arrow)"/>
+
+  <rect x="496" y="302" width="440" height="104" rx="12" fill="#ecfdf5" stroke="#a7f3d0"/>
+  <text class="small" x="512" y="326" style="fill:#047857;font-weight:600">LLM</text>
+  <text x="512" y="350" font-size="13.5" fill="#0f172a">Page 163 shows read-after-write consistency:</text>
+  <text x="512" y="370" font-size="13.5" fill="#0f172a">the table lists each guarantee, the code appends to</text>
+  <text x="512" y="390" font-size="13.5" fill="#0f172a">the leader, and the diagram shows two followers.</text>
+</svg>
